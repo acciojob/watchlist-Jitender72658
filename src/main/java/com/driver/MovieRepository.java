@@ -44,7 +44,7 @@ public class MovieRepository {
     }
 
     private List<String> movieList;
-    MovieRepository(){
+   public MovieRepository(){
         hmMovies = new HashMap<>();
         hmDirector = new HashMap<>();
         hmMovieDirector = new HashMap<>();

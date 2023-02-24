@@ -32,7 +32,7 @@ public class Director {
     Director(){
 
     }
-    Director(String name, int numberOfMovies,double imdbRating){
+    public Director(String name, int numberOfMovies,double imdbRating){
         this.name = name;
         this.numberOfMovies = numberOfMovies;
         this.imdbRating = imdbRating;

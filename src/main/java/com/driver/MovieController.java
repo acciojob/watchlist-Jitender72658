@@ -12,7 +12,7 @@ import java.util.List;
 public class MovieController {
     @Autowired
      MovieService movieService;
-    MovieController(){
+  public MovieController(){
 
     }
     @PostMapping("/add-movie")

@@ -6,7 +6,7 @@ public class Movie {
     private int duration ;
     private double imdbRating;
 
-    public String getMovie() {
+    public String getName(){
         return name;
     }
 
@@ -14,11 +14,11 @@ public class Movie {
         this.name = movie;
     }
 
-    public int getDuration() {
+    public int getDurationInMinutes() {
         return duration;
     }
 
-    public void setDuration(int duration) {
+    public void setDurationInMinutes(int duration) {
         this.duration = duration;
     }
 
@@ -33,7 +33,7 @@ public class Movie {
     Movie(){
 
     }
-      Movie(String name, int duration, double imdbRating){
+    public  Movie(String name, int duration, double imdbRating){
           this.name = name;
           this.duration = duration;
           this.imdbRating = imdbRating;

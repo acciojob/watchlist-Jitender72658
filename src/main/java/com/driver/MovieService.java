@@ -11,8 +11,8 @@ public class MovieService {
    @Autowired
    MovieRepository movieRepository;
     public void  addMovie(Movie movie){
-        movieRepository.getHmMovies().put(movie.getMovie(),movie);
-        movieRepository.getMovieList().add(movie.getMovie());
+        movieRepository.getHmMovies().put(movie.getName(),movie);
+        movieRepository.getMovieList().add(movie.getName());
     }
     public void  addDirector(Director director){
 
