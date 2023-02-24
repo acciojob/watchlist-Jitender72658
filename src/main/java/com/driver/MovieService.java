@@ -11,70 +11,35 @@ public class MovieService {
    @Autowired
    MovieRepository movieRepository;
     public void  addMovie(Movie movie){
-        movieRepository.getHmMovies().put(movie.getName(),movie);
-        movieRepository.getMovieList().add(movie.getName());
+        movieRepository.addMovie(movie);
     }
     public void  addDirector(Director director){
-
-        movieRepository.getHmDirector().put(director.getName(),director);
+        movieRepository.addDirector(director);
     }
 
     public void addMovieDirectorPair( String movie, String director){
-        List<String> list = movieRepository.getHmMovieDirector().get(director);
-        list.add(movie);
+       movieRepository.addMovieDirectorPair(movie,director);
     }
     public  Movie getMovieByName(String name){
-        return movieRepository.getHmMovies().get(name);
+
+        return movieRepository.getMovieByName(name);
     }
     public Director getDirectorByName(String name){
-        return movieRepository.getHmDirector().get(name);
+
+        return movieRepository.getDirectorByName(name);
     }
     public List<String> getMoviesByDirectorName(String director){
-
-       // return movieRepository.getHmMovieDirector().get(name);
-        List<String> moviesList = new ArrayList<String>();
-        if(movieRepository.getHmMovieDirector().containsKey(director)) moviesList =movieRepository.getHmMovieDirector().get(director);
-        return moviesList;
+        return movieRepository.getMoviesByDirectorName(director);
     }
     public List<String> findAllMovies(){
-        return movieRepository.getMovieList();
+
+        return movieRepository.findAllMovies();
     }
     public void deleteDirectorByName(String director){
-//        movieRepository.getHmMovieDirector().remove(director);
-        List<String> movies = new ArrayList<String>();
-        if(movieRepository.getHmMovieDirector().containsKey(director)){
-            movies = movieRepository.getHmMovieDirector().get(director);
-            for(String movie: movies){
-                if(movieRepository.getHmMovies().containsKey(movie)){
-                    movieRepository.getHmMovies().remove(movie);
-                }
-            }
-
-            movieRepository.getHmMovieDirector().remove(director);
-        }
-
-        if(movieRepository.getHmDirector().containsKey(director)){
-            movieRepository.getHmDirector().remove(director);
-        }
+          movieRepository.deleteDirectorByName(director);
     }
 
     public void deleteAllDirector(){
-
-      //  movieRepository.getHmMovieDirector().clear();
-        HashSet<String> moviesSet = new HashSet<String>();
-
-        //directorMap = new HashMap<>();
-
-        for(String director:movieRepository.getHmMovieDirector().keySet()){
-            for(String movie:movieRepository.getHmMovieDirector().get(director)){
-                moviesSet.add(movie);
-            }
-        }
-
-        for(String movie: moviesSet){
-            if(movieRepository.getHmMovies().containsKey(movie)){
-                movieRepository.getHmMovies().remove(movie);
-            }
-        }
+        movieRepository.deleteAllDirector();
     }
 }
